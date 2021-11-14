@@ -1,6 +1,6 @@
 const{DataTypes}= require("sequelize");
 const sequelize = require("../db/connection");
-const Actor = require("../actor/actor.model");
+
 
 const Movie = sequelize.define('Movie', {
     id: {
@@ -18,11 +18,12 @@ const Movie = sequelize.define('Movie', {
     },
     actor_id:{
         type: DataTypes.INTEGER,
-       
+        
     }
 });
 
-Movie.hasOne(Actor, {foreignKey: 'actor_id'})
-Actor.belongsTo(Movie)
+
+
+
 
 module.exports = Movie;

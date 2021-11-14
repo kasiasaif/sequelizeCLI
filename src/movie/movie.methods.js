@@ -1,10 +1,10 @@
-// const Actor = require("../actor/actor.model");
+const Actor = require("../actor/actor.model");
 const Movie = require("./movie.model");
 
 const addMovie = async (movieObj) => {
     try{
-        // const actor = await Actor.findOne({where: {name: movieObj.actor}})
-        // movieObj.actor = actor.name
+        const actor = await Actor.findOne({where: {name: movieObj.actor}})
+        movieObj.actor_id = actor.id
         await Movie.sync();
         const result = await Movie.create(movieObj)
         console.log('You have added new movie : ' , result)
@@ -42,10 +42,10 @@ async function updateMovieByTitle(movieObj){
         console.log(error)
     }
 }
-async function updateMovieById(id, movieObj){
+async function updateMovieById(id,movieObj){
     try{
         await Movie.update(
-        {actor : movieObj.actor},
+        {title : movieObj.title},
             {where: { id: id}
         })
         console.log('You have updated : ' )

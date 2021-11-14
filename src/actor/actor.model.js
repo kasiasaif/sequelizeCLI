@@ -17,5 +17,5 @@ const Actor = sequelize.define('Actor', {
         defaultValue: 'not specified'
     }
 });
-// Movie.belongsTo(Actor, { foreignKey: 'actor_id' });
+
 module.exports = Actor;

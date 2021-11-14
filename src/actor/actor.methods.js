@@ -28,10 +28,10 @@ async function readActor(id){
         console.log(error)
     }
 }
-async function updateActorById(id){
+async function updateActorById(id,actorObj){
     try{
         await Actor.update(
-        {actor : actorObj.name},
+        {name: actorObj.name},
             {where: { id: id}
             })
         console.log('You have updated : ' )
@@ -39,17 +39,7 @@ async function updateActorById(id){
         console.log(error)
     }
 }
-// async function updateMovieById(id, movieObj){
-//     try{
-//         await Movie.update(
-//         {actor : movieObj.actor},
-//             {where: { id: id}
-//         })
-//         console.log('You have updated : ' )
-//     }catch(error){
-//         console.log(error)
-//     }
-// }
+
 
 async function deleteActorById(id) {
     try{
